@@ -9,7 +9,7 @@ namespace src.Api.Domain.Interfaces.Services
     {
         Task<IEnumerable<UserDTO>> FindAllAsync();
         Task<UserDTO> FindByIdAsync(Guid id);
-        Task<UserInsertResultDTO> InsertAsync(CreateUserDTO userDTO);
+        Task<UserCreateResultDTO> InsertAsync(CreateUserDTO userDTO);
         Task<UserUpdateResultDTO> UpdateAsync(UpdateUserDTO userDTO);
         Task<bool> DeleteAsync(Guid id);
     }

@@ -35,14 +35,14 @@ namespace src.Api.Service.Services.User
             return _mapper.Map<UserDTO>(entity);
         }
 
-        public async Task<UserInsertResultDTO> InsertAsync(CreateUserDTO userDTO)
+        public async Task<UserCreateResultDTO> InsertAsync(CreateUserDTO userDTO)
         {
             var model = _mapper.Map<UserModel>(userDTO);
             var user = _mapper.Map<UserEntity>(model);
 
             var entity = await _repository.InsertAsync(user);
 
-            return _mapper.Map<UserInsertResultDTO>(entity);
+            return _mapper.Map<UserCreateResultDTO>(entity);
         }
 
         public async Task<UserUpdateResultDTO> UpdateAsync(UpdateUserDTO userDTO)

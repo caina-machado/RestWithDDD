@@ -2,7 +2,7 @@ using System;
 
 namespace src.Api.Domain.DTOs.User
 {
-    public class UserInsertResultDTO
+    public class UserCreateResultDTO
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
