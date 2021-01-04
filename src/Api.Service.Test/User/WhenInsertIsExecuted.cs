@@ -23,7 +23,6 @@ namespace src.Api.Service.Test.User
             Assert.Equal(result.Name, UserName);
             Assert.Equal(result.Email, UserEmail);
             Assert.False(result.Id == Guid.Empty);
-            Assert.NotNull(result.CreateAt);
         }
     }
 }
