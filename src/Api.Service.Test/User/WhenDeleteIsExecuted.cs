@@ -18,7 +18,6 @@ namespace src.Api.Service.Test.User
             _service = _serviceMock.Object;
 
             var result = await _service.DeleteAsync(UserId);
-            Assert.NotNull(result);
             Assert.True(result);
         }
     }
