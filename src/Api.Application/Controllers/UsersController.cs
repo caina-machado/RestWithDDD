@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using src.Api.Domain.DTOs.User;
-using src.Api.Domain.Entities;
 using src.Api.Domain.Interfaces.Services;
 
 namespace src.Api.Application.Controllers
