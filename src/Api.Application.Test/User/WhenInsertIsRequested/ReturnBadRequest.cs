@@ -14,7 +14,7 @@ namespace src.Api.Application.Test.User.WhenInsertIsRequested
         private UsersController controller;
 
         [Fact(DisplayName = "Is Possible To Request Insert")]
-        public async Task IsPossibleToRequestInsert()
+        public async Task IsNotPossibleToRequestInsert()
         {
             var serviceMock = new Mock<IUserService>();
 

@@ -14,7 +14,7 @@ namespace src.Api.Application.Test.User.WhenUpdateIsRequested
         private UsersController controller;
 
         [Fact(DisplayName = "Is Possible To Request Update")]
-        public async Task IsPossibleToRequestUpdate()
+        public async Task IsNotPossibleToRequestUpdate()
         {
             var serviceMock = new Mock<IUserService>();
 
