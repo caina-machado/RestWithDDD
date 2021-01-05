@@ -13,7 +13,7 @@ namespace src.Api.Application.Test.User.WhenInsertIsRequested
     {
         private UsersController controller;
 
-        [Fact(DisplayName = "Is Possible To Request Insert")]
+        [Fact(DisplayName = "Is Not Possible To Request Insert")]
         public async Task IsNotPossibleToRequestInsert()
         {
             var serviceMock = new Mock<IUserService>();

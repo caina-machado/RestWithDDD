@@ -12,7 +12,7 @@ namespace src.Api.Application.Test.User.WhenDeleteIsRequested
     {
         private UsersController controller;
 
-        [Fact(DisplayName = "Is Possible To Request Delete")]
+        [Fact(DisplayName = "Is Not Possible To Request Delete")]
         public async Task IsNotPossibleToRequestDelete()
         {
             var serviceMock = new Mock<IUserService>();

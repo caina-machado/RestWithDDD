@@ -7,41 +7,33 @@ using src.Api.Domain.DTOs.User;
 using src.Api.Domain.Interfaces.Services;
 using Xunit;
 
-namespace src.Api.Application.Test.User.WhenUpdateIsRequested
+namespace src.Api.Application.Test.User.WhenFindByIdIsRequested
 {
     public class ReturnBadRequest
     {
         private UsersController controller;
 
-        [Fact(DisplayName = "Is Not Possible To Request Update")]
-        public async Task IsNotPossibleToRequestUpdate()
+        [Fact(DisplayName = "Is Not Possible To Request FindById")]
+        public async Task IsNotPossibleToRequestFindById()
         {
             var serviceMock = new Mock<IUserService>();
 
             var name = Faker.Name.FullName();
             var email = Faker.Internet.Email();
 
-            serviceMock.Setup(m => m.UpdateAsync(It.IsAny<UpdateUserDTO>())).ReturnsAsync(
-                new UserUpdateResultDTO
+            serviceMock.Setup(m => m.FindByIdAsync(It.IsAny<Guid>())).ReturnsAsync(
+                new UserDTO
                 {
                     Id = Guid.NewGuid(),
                     Name = name,
-                    Email = email,
-                    UpdateAt = DateTime.Now
+                    Email = email
                 }
             );
 
             controller = new UsersController(serviceMock.Object);
-            controller.ModelState.AddModelError("Email", "É um campo obrigatório");
+            controller.ModelState.AddModelError("Id", "Formato inválido");
 
-            var updateUserDto = new UpdateUserDTO
-            {
-                Id = Guid.NewGuid(),
-                Name = name,
-                Email = email
-            };
-
-            var result = await controller.UpdateAsync(updateUserDto);
+            var result = await controller.FindByIdAsync(Guid.NewGuid());
             Assert.True(result is BadRequestObjectResult);
         }
     }
