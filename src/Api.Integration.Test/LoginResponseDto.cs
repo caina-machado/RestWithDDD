@@ -1,3 +1,6 @@
+using System;
+using Newtonsoft.Json;
+
 namespace src.Api.Integration.Test
 {
     public class LoginResponseDto
