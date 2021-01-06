@@ -37,6 +37,42 @@
                 "/consoleloggerparameters:NoSummary"
             ],
             "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Data.Test",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "test",
+                "${workspaceFolder}/src/Api.Data.Test/Data.Test.csproj"
+            ]
+        },
+        {
+            "label": "Service.Test",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "test",
+                "${workspaceFolder}/src/Api.Service.Test/Service.Test.csproj"
+            ]
+        },
+        {
+            "label": "Application.Test",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "test",
+                "${workspaceFolder}/src/Api.Application.Test/Application.Test.csproj"
+            ]
+        },
+        {
+            "label": "Integration.Test",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "test",
+                "${workspaceFolder}/src/Api.Integration.Test/Api.Integration.Test.csproj"
+            ]
         }
     ]
 }
