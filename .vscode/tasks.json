@@ -54,7 +54,8 @@
             "args": [
                 "test",
                 "${workspaceFolder}/src/Api.Service.Test/Service.Test.csproj"
-            ]
+            ],
+            "problemMatcher": []
         },
         {
             "label": "Application.Test",

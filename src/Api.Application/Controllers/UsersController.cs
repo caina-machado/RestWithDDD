@@ -44,7 +44,11 @@ namespace src.Api.Application.Controllers
 
             try
             {
-                return Ok(await _service.FindByIdAsync(id));
+                var result = await _service.FindByIdAsync(id);
+
+                if (result == null) return NotFound();
+
+                return Ok(result);
             }
             catch (ArgumentException ex)
             {

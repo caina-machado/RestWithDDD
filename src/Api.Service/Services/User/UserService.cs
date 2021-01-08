@@ -50,7 +50,7 @@ namespace src.Api.Service.Services.User
             var model = _mapper.Map<UserModel>(userDTO);
             var user = _mapper.Map<UserEntity>(model);
 
-            var entity = await _repository.InsertAsync(user);
+            var entity = await _repository.UpdateAsync(user);
 
             return _mapper.Map<UserUpdateResultDTO>(entity);
         }

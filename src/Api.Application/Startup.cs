@@ -65,11 +65,11 @@ namespace Application
             var signinConfigurations = new SigninConfigurations();
             services.AddSingleton(signinConfigurations);
 
-            var tokenConfiguration = new TokenConfiguration();
-            new ConfigureFromConfigurationOptions<TokenConfiguration>(
-                Configuration.GetSection("TokenConfigurations")
-            ).Configure(tokenConfiguration);
-            services.AddSingleton(tokenConfiguration);
+            // var tokenConfiguration = new TokenConfiguration();
+            // new ConfigureFromConfigurationOptions<TokenConfiguration>(
+            //     Configuration.GetSection("TokenConfigurations")
+            // ).Configure(tokenConfiguration);
+            // services.AddSingleton(tokenConfiguration);
 
             services.AddAuthentication(authOptions =>
             {
@@ -79,8 +79,8 @@ namespace Application
             {
                 var paramsValidation = bearerOptions.TokenValidationParameters;
                 paramsValidation.IssuerSigningKey = signinConfigurations.Key;
-                paramsValidation.ValidAudience = tokenConfiguration.Audience;
-                paramsValidation.ValidIssuer = tokenConfiguration.Issuer;
+                paramsValidation.ValidAudience = Environment.GetEnvironmentVariable("Audience");
+                paramsValidation.ValidIssuer = Environment.GetEnvironmentVariable("Issuer");
                 paramsValidation.ValidateIssuerSigningKey = true;
                 paramsValidation.ValidateLifetime = true;
                 paramsValidation.ClockSkew = TimeSpan.Zero;
